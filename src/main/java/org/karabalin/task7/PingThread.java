@@ -1,0 +1,32 @@
+package org.karabalin.task7;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class PingThread extends Thread {
+
+    private final Object lock;
+    private AtomicBoolean flag;
+
+    public PingThread(Object lock, AtomicBoolean flag) {
+        this.lock = lock;
+        this.flag = flag;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            synchronized (lock) {
+                while (!flag.get()) {
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                System.out.println("ping");
+                flag.set(false);
+                lock.notify();
+            }
+        }
+    }
+}
