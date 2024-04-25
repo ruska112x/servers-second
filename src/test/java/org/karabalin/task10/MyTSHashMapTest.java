@@ -1,9 +1,12 @@
 package org.karabalin.task10;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import java.util.concurrent.ConcurrentHashMap;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.RepeatedTest;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Map;
 
 class MapThread extends Thread {
@@ -27,16 +30,16 @@ class MapThread extends Thread {
 }
 
 public class MyTSHashMapTest {
-    private MyTSHashMap<Integer, String> myTSHashMap;
-    private ConcurrentHashMap<Integer, String> cHashMap;
+    private static MyTSHashMap<Integer, String> myTSHashMap;
+    private static ConcurrentHashMap<Integer, String> cHashMap;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeAll
+    public static void setUp() throws Exception {
         myTSHashMap = new MyTSHashMap<>();
         cHashMap = new ConcurrentHashMap<>();
     }
 
-    @Test
+    @RepeatedTest(20)
     public void testMyTSHashMap() {
         final long startTime = System.currentTimeMillis();
 
@@ -59,11 +62,11 @@ public class MyTSHashMapTest {
 
         final long endTime = System.currentTimeMillis();
 
-        System.out.println(endTime - startTime);
-        assert (endTime - startTime > 0);
+        System.out.println("MyTSHashMap: e=" + endTime + ", s=" + startTime);
+        assertTrue(endTime - startTime > 0l);
     }
 
-    @Test
+    @RepeatedTest(20)
     public void testConcurrentHashMap() {
         final long startTime = System.currentTimeMillis();
 
@@ -86,7 +89,7 @@ public class MyTSHashMapTest {
 
         final long endTime = System.currentTimeMillis();
 
-        System.out.println(endTime - startTime);
-        assert (endTime - startTime > 0);
+        System.out.println("Concurrent: e=" + endTime + ", s=" + startTime);
+        assertTrue(endTime - startTime > 0l);
     }
 }
