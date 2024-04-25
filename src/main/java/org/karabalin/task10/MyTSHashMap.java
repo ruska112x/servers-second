@@ -1,10 +1,6 @@
 package org.karabalin.task10;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.stream.Collectors;
 
@@ -35,7 +31,7 @@ public class MyTSHashMap<K, V> implements Map<K, V> {
         for (ReentrantReadWriteLock lock : locks) {
             lock.writeLock().lock();
         }
-        Arrays.stream(maps).forEach(m -> m.clear());
+        Arrays.stream(maps).forEach(m -> m.fclear());
         for (ReentrantReadWriteLock lock : locks) {
             lock.writeLock().unlock();
         }

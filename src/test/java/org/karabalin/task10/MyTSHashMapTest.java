@@ -1,13 +1,12 @@
 package org.karabalin.task10;
 
-import java.util.concurrent.ConcurrentHashMap;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.RepeatedTest;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MapThread extends Thread {
     private final Map<Integer, String> map;
