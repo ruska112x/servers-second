@@ -1,6 +1,7 @@
 package org.karabalin;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import org.karabalin.task3.MyThread1;
 import org.karabalin.task3.MyThread2;
 import org.karabalin.task3.MyThread3;
@@ -18,7 +19,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MainTest {
 

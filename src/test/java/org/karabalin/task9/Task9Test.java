@@ -1,6 +1,7 @@
 package org.karabalin.task9;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Condition;

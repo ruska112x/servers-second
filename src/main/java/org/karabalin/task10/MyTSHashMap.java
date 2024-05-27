@@ -31,7 +31,7 @@ public class MyTSHashMap<K, V> implements Map<K, V> {
         for (ReentrantReadWriteLock lock : locks) {
             lock.writeLock().lock();
         }
-        Arrays.stream(maps).forEach(m -> m.fclear());
+        Arrays.stream(maps).forEach(m -> m.clear());
         for (ReentrantReadWriteLock lock : locks) {
             lock.writeLock().unlock();
         }
