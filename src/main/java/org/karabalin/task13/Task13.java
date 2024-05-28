@@ -6,6 +6,8 @@ import net.sourceforge.argparse4j.inf.Namespace;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Task13 {
     public static void main(String[] args) {
@@ -26,21 +28,13 @@ public class Task13 {
             int numOfReaders = res.get("r");
             int capacity = res.get("c");
             BlockingQueue<Data> queue = new ArrayBlockingQueue<>(capacity);
-            Thread[] writers = new Thread[numOfWriters];
-            Thread[] readers = new Thread[numOfReaders];
+            ExecutorService writers = Executors.newFixedThreadPool(numOfWriters);
+            ExecutorService readers = Executors.newFixedThreadPool(numOfReaders);
             for (int i = 0; i < numOfWriters; i++) {
-                writers[i] = new Thread(new DataWriter(queue));
-                writers[i].start();
+                writers.execute(new DataWriter(queue));
             }
             for (int i = 0; i < numOfReaders; i++) {
-                readers[i] = new Thread(new DataReader(queue));
-                readers[i].start();
-            }
-            for (int i = 0; i < numOfWriters; i++) {
-                writers[i].join();
-            }
-            for (int i = 0; i < numOfReaders; i++) {
-                readers[i].join();
+                readers.execute(new DataReader(queue));
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
