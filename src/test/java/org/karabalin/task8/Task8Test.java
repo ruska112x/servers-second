@@ -1,7 +1,6 @@
 package org.karabalin.task8;
 
 
-
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
