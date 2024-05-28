@@ -29,11 +29,11 @@ public class Task13 {
             Thread[] writers = new Thread[numOfWriters];
             Thread[] readers = new Thread[numOfReaders];
             for (int i = 0; i < numOfWriters; i++) {
-                writers[i] = new Thread(new Writer(queue));
+                writers[i] = new Thread(new DataWriter(queue));
                 writers[i].start();
             }
             for (int i = 0; i < numOfReaders; i++) {
-                readers[i] = new Thread(new Reader(queue));
+                readers[i] = new Thread(new DataReader(queue));
                 readers[i].start();
             }
             for (int i = 0; i < numOfWriters; i++) {

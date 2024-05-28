@@ -2,10 +2,10 @@ package org.karabalin.task13;
 
 import java.util.concurrent.BlockingQueue;
 
-public class Writer implements Runnable {
+public class DataWriter implements Runnable {
     private final BlockingQueue<Data> queue;
 
-    public Writer(BlockingQueue<Data> queue) {
+    public DataWriter(BlockingQueue<Data> queue) {
         this.queue = queue;
     }
 

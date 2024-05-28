@@ -3,10 +3,10 @@ package org.karabalin.task13;
 import java.util.Arrays;
 import java.util.concurrent.BlockingQueue;
 
-public class Reader implements Runnable {
+public class DataReader implements Runnable {
     private final BlockingQueue<Data> queue;
 
-    public Reader(BlockingQueue<Data> queue) {
+    public DataReader(BlockingQueue<Data> queue) {
         this.queue = queue;
     }
 
