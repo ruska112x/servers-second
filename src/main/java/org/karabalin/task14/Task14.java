@@ -36,7 +36,7 @@ public class Task14 {
             ExecutorService readers = Executors.newFixedThreadPool(numOfReaders);
 
             for (int i = 0; i < numOfWriters; i++) {
-                writers.execute(new ExecutableWriter(queue));
+                writers.execute(new TaskWriter(queue));
             }
             for (int i = 0; i < numOfReaders; i++) {
                 readers.execute(new ExecutableReader(queue));

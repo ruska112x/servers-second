@@ -3,10 +3,10 @@ package org.karabalin.task14;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 
-public class ExecutableWriter implements Runnable {
+public class TaskWriter implements Runnable {
     private BlockingQueue<Executable> queue;
 
-    public ExecutableWriter(BlockingQueue<Executable> queue) {
+    public TaskWriter(BlockingQueue<Executable> queue) {
         this.queue = queue;
     }
 
