@@ -13,7 +13,7 @@ public class Writer implements Runnable {
     public void run() {
         while (true) {
             try {
-                System.out.println("Write");
+                System.out.println("W");
                 queue.put(new Data());
             } catch (InterruptedException e) {
                 e.printStackTrace();

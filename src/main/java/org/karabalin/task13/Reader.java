@@ -14,9 +14,8 @@ public class Reader implements Runnable {
     public void run() {
         while (true) {
             try {
-                System.out.println("Read");
                 Data data = queue.take();
-                System.out.println(Arrays.toString(data.get()));
+                System.out.println("R: " + Arrays.toString(data.get()));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

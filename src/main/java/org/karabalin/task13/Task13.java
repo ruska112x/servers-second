@@ -36,12 +36,12 @@ public class Task13 {
                 readers[i] = new Thread(new Reader(queue));
                 readers[i].start();
             }
-//            for (int i = 0; i < numOfWriters; i++) {
-//                writers[i].join();
-//            }
-//            for (int i = 0; i < numOfReaders; i++) {
-//                readers[i].join();
-//            }
+            for (int i = 0; i < numOfWriters; i++) {
+                writers[i].join();
+            }
+            for (int i = 0; i < numOfReaders; i++) {
+                readers[i].join();
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
