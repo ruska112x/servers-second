@@ -35,7 +35,7 @@ public class Sender {
                 }
             }
             executor.shutdown();
-            executor.awaitTermination(1, TimeUnit.HOURS);
+            executor.awaitTermination(1, TimeUnit.MINUTES);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
